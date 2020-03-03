@@ -7,7 +7,7 @@ import TerserJSPlugin from 'terser-webpack-plugin';
 import OptimizeCssAssetsWebpackPlugin from 'optimize-css-assets-webpack-plugin';
 
 const webpackConfiguration = (_, argv) => {
-  const isProduction = argv.mode;
+  const isProduction = argv.mode === 'production';
 
   const configuration = {
     entry: {
