@@ -3,6 +3,7 @@
   "name": "Browser Extension Template",
   "version": "0.0.1",
   "description": "A basic template for a cross-browser extension.",
+  "permissions": [],
   "icons": {},
   "browser_action": {
     "default_title": "Browser Extension",
