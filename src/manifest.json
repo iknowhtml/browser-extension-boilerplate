@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Browser Extension Template",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A basic template for a cross-browser extension.",
   "icons": {},
   "browser_action": {
@@ -11,5 +11,12 @@
   },
   "background": {
     "scripts": ["background_scripts/index.js"]
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls"],
+      "js": ["content_scripts / index.js"],
+      "run_at": "document_start"
+    }
+  ]
 }
