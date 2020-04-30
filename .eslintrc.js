@@ -13,5 +13,6 @@ module.exports = {
     es2020: true,
     browser: true,
     node: true,
+    webextensions: true,
   },
 };
