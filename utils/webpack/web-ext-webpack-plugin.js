@@ -8,15 +8,14 @@ const pluginName = 'WebExtWebpackPlugin';
 
 class WebExtWebpackPlugin {
   constructor({
-    sourceDir = path.resolve('src'),
-    artifactsDir = path.resolve('dist'),
-    browserConsole = false,
+    sourceDir = path.resolve('dist'),
+    artifactsDir,
+    browserConsole = true,
     firefox,
     firefoxProfile,
     startUrl,
+    target,
   } = {}) {
-    console.log(sourceDir);
-    console.log(artifactsDir);
     this.runner = null;
     this.watchMode = false;
     this.artifactsDir = artifactsDir;
@@ -24,13 +23,15 @@ class WebExtWebpackPlugin {
     this.firefoxProfile = firefoxProfile;
     this.sourceDir = sourceDir;
     this.startUrl = startUrl;
+    this.target = target;
   }
 
   apply(compiler) {
+    //eslint-disable-next-line no-unused-vars
     const watchRun = async compiler => {
       this.watchMode = true;
     };
-
+    //eslint-disable-next-line no-unused-vars
     const afterEmit = async compilation => {
       try {
         await webExt.cmd.lint(
@@ -68,6 +69,7 @@ class WebExtWebpackPlugin {
               firefoxProfile: this.firefoxProfile,
               startUrl: this.startUrl,
               noReload: true,
+              target: this.target,
             },
             {}
           )
