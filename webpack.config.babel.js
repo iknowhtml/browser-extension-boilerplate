@@ -28,9 +28,7 @@ const webpackConfiguration = () => ({
       {
         from: 'src/**/*',
         ignore: ['*.js'],
-        transformPath(targetPath, absolutePath) {
-          console.log(targetPath);
-          console.log(absolutePath);
+        transformPath(targetPath) {
           return targetPath.replace(/src(\/|\\)/, '');
         },
       },
