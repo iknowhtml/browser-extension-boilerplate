@@ -1,5 +1,4 @@
 import leftPad from 'left-pad';
-import './style.css';
 
 const resultNode = document.getElementById('result');
 const textNode = document.getElementById('text');
@@ -21,7 +20,7 @@ document.getElementById('leftpad-form').addEventListener(
   false
 );
 
-document.getElementById('pad-bg').addEventListener('click', e => {
+document.getElementById('pad-bg').addEventListener('click', () => {
   var sendingMessage = browser.runtime.sendMessage({
     text: textNode.value,
     amount: amountNode.valueAsNumber,
